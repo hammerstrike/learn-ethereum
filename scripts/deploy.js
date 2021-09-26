@@ -20,6 +20,14 @@ async function main() {
   await greeter.deployed();
 
   console.log("Greeter deployed to:", greeter.address);
+
+  // We get the contract to deploy
+  const Verifier = await hre.ethers.getContractFactory("Verifier");
+  const verifier = await Verifier.deploy();
+
+  await verifier.deployed();
+  console.log("Verifier deployed to:", verifier.address);
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere
